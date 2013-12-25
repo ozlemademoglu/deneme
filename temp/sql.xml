@@ -3,9 +3,9 @@
             <HeaderStyle CssClass="header" />
             <RowStyle CssClass="row" />
             <AlternatingRowStyle CssClass="alternate" Height="11px" />
-            <EditRowStyle CssClass="satir" />
-            <FooterStyle CssClass="footer" />
-            <PagerStyle CssClass="pager" />
+            <EditRowStyle CssClass="satirDetayKisi" />
+            <FooterStyle CssClass="footerKisi" />
+            <PagerStyle CssClass="pagerKisi" />
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
