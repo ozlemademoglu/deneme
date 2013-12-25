@@ -1,0 +1,29 @@
+class server
+{
+          final static  int  serverPort = 1099;
+            public static void main(String args[])
+            {
+                  try
+                  {
+                        ServerSocket  socket = new ServerSocket(serverPort);//Serverda PORT oluşturuluyor.
+                        System.out.println("Client bekliyorr...");
+
+                        Socket  clientSocket = socket.accept();//Server portuna gelen isteği kabul ediyor. 
+                        System.out.println("Client Bağlandı");
+                        BufferedReader  giris   = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));//Server da veri girişi Kanalı açılıyor.
+                        PrintWriter   cikis   = new PrintWriter(clientSocket.getOutputStream());//Server da veri çıkışı Kanalı açılıyor.
+                        String gelen_msg = giris.readLine();//Klavyeden girileni okuyor ve String değişkene atıyor.
+                        System.out.println("Mesaji Cliente Gönder >" + gelen_msg);
+                        cikis.println(gelen_msg);//Server'un çıkış kanalına atıyor sonra da Client'ın giriş kanalına giriyor. 
+                      
+                        cikis.close();//Çıkış kanalını kapatıyor.
+                        giris.close();//Giriş kanalını kapatıyor.
+                        clientSocket.close();//Client dan gelen kapılarını kapatıyor.
+                        socket.close();//Soket'i kapatıyor.
+                  }
+                  catch (Exception e)
+                  {
+                        System.out.println("Hata : " + e.getMessage());//hata mesajı
+                  }
+            }
+}
