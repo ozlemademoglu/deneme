@@ -1,0 +1,17 @@
+    <div>
+        <asp:GridView ID="GridView1" runat="server" CssClass="grid" CellPadding="4" EnableModelValidation="True" ForeColor="#333333" GridLines="None">
+            <HeaderStyle CssClass="header" />
+            <RowStyle CssClass="row" />
+            <AlternatingRowStyle CssClass="alternate" Height="11px" />
+            <EditRowStyle CssClass="satir" />
+            <FooterStyle CssClass="footer" />
+            <PagerStyle CssClass="pager" />
+            <Columns>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <a href="icerik.aspx?id=<%#Eval("ID").ToString() %>">DETAY</a>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
+    </div>
