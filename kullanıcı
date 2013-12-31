@@ -1,0 +1,33 @@
++class kullanıcı
+ +{
+ +      final static String    serverIPname = "127.0.0.1";  
+ +      final static  int       serverPort   = 1099;
+ +
+ +    public static void main(String args[])
+ +    {
+ +          try
+ +          {
+ +                Socket socket = new Socket(serverIPname,serverPort);// Bağlanılacak Server'un IP'si  ve Portu 
+ +                PrintStream  cikis   = new PrintStream(socket.getOutputStream(),true);// Client için Çıkış Kanalı oluşturuluyor.
+ +                BufferedReader  giris   = new BufferedReader(new InputStreamReader(System.in));// Client için Giriş Kanalı oluşturuluyor.
+ +
+ +                System.out.println("Server'a Bağlandı !!");
+ +                System.out.println("Server'a Mesaj Gönder :\n");
+ +
+ +                String line = giris.readLine();//Klavyeden girilen veriyi okuyor ve String değişkene atıyor.
+ +
+ +                cikis.println(line);//Client'in çıkış kanalına atıyor sonra da Server'un giriş kanalına giriyor. 
+ +
+ +                String svr_gelen_msg = giris.readLine();//Server'dan gelen veri okunuyor ve değişkene atılıyor.
+ +                
+ +                System.out.println("Serverdan Yanıt >" + svr_gelen_msg);//ekrana basılıyor
+ +                cikis.close();//Çıkış kanalını kapatıyor.
+ +                giris.close();//Giriş kanalını kapatıyor.
+ +                socket.close();//Soket'i kapatıyor.
+ +           }
+ +          catch (Throwable e)
+ +          {
+ +                System.out.println("Hata : " + e.getMessage());//hata mesajı
+ +          }
+ +    }
+ +}
