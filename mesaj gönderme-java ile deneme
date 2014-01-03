@@ -1,0 +1,19 @@
+public static void dosend(int message)
+{
+    QueueConnectionFactory fac = (QueueConnectionFactory) 
+            ctx.lookup("java:comp/env/message/QueueConnectionFactory");
+   
+    Queue kuyruk= (Queue) ctx.lookup("java:comp/env/message/demoQueue");
+    QueueConnection conn  = fac.createQueueConnection();
+    conn.start();
+    QueueSession sess  = conn.createQueueSession(false,session.AUTO_ACKNOWLEDGE)
+    QueueSender gonderen = sess.createSender(sender);
+    for (int i = 0; i < message; ++i)
+    {
+     Message mesaj = sess.createMessage();
+     gonderen.send(mesaj);
+     System.out.println("mesajınız:" + " id=" + mesaj.getJMSMessageID());
+    }
+    gonderen.close();
+    session.close();
+    conn.close()
