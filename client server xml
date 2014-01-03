@@ -1,0 +1,17 @@
++<?xml version="1.0" ?>
+ +<!DOCTYPE jms-server PUBLIC "OracleAS JMS server" "http://***/server.dtd">
+ +
+ +<jms-server port="***">
+ +   <queue location="jms/demoQueue"> </queue>
+ +   <queue-connection-factory location="jms/QueueConnectionFactory">
+ +   </queue-connection-factory>
+ +
+ +   <topic location="jms/demoTopic"> </topic>
+ +   <topic-connection-factory location="jms/TopicConnectionFactory">
+ +   </topic-connection-factory>
+ +
+ +    <!-- path to the log-file where JMS-events/errors are stored -->
+ +    <log>
+ +        <file path="../log/jms.log" />
+ +    </log>
+ +</jms-server>
