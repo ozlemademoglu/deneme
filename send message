@@ -1,0 +1,30 @@
+package com.android.sendmessage;
+
+import android.app.Activitiy;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget EditText;
+
+public class Message extends Activity
+{
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+   super.onCreate(savedInstanceState);
+   setContentView(R.layout.activity_main);
+ 
+   ((Button) findViewById(R.id.send_messagee).setOnClickListener(new OnClickListener() {
+ 
+      @Override
+      public void onClick(View v) {
+         String number = "0541268000";
+         String message = "hi!What's up?";
+ 
+         Uri uri = Uri.parse("messageto:" + number);
+         Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
+         intent.putExtra("message_body", message);
+         startActivity(intent);
+      }
+   });
+}
