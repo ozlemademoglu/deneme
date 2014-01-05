@@ -1,0 +1,24 @@
+public class Constants {
+
+    static enum SQLiteTableNames { Mesaj, Activities }
+
+    static class SQLiteTables {
+        static class Mesajs {           
+            static class ColumnNames {
+                static String ID = "_id";
+                static String DateReceived = "DateReceived";
+            }
+        }
+
+        static class IssueActivites {           
+            static class ColumnNames {
+                static String ID = "_id";
+                static String IssueID = "MesajID";
+                static String ActivityDate = "ActivityDate";
+                static String ActivityType = "ActivityType";
+                static String FullName = "FullName";
+                static String Notes = "Notes";
+            }
+        }
+    }
+}
